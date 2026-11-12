@@ -1,0 +1,29 @@
+{
+  "name": "pkm-persistence-lab",
+  "private": true,
+  "version": "0.4.0",
+  "description": "PKM local com SQLite WASM, OPFS e modelagem relacional versionada.",
+  "type": "module",
+  "engines": { "node": ">=24.14.0" },
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview",
+    "test": "npm run build && playwright test --project=unit --project=chrome",
+    "test:unit": "playwright test --config playwright.unit.config.ts",
+    "test:e2e": "playwright test --project=chrome",
+    "test:edge": "npm run build && playwright test --project=edge",
+    "test:pages": "playwright test --config playwright.pages.config.ts",
+    "prepare:github": "node scripts/prepare-github-upload.mjs"
+  },
+  "dependencies": {
+    "@sqlite.org/sqlite-wasm": "3.54.1-build1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@types/node": "24.12.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.7"
+  }
+}
